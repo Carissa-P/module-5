@@ -5,6 +5,8 @@
 // https://flaviocopes.com/javascript-regular-expressions/ 
 // Regular expressions can get complex, you can think in terms of a series of characters
 // or numbers 
+//Reference https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module5-ValidatedService
+
 function validatePhone(txtPhone) {
     var a = document.getElementById(txtPhone).value;
     // This filter asks for something like (12345), so parentheses with any number (at least 1)
