@@ -5,7 +5,9 @@
 // https://flaviocopes.com/javascript-regular-expressions/ 
 // Regular expressions can get complex, you can think in terms of a series of characters
 // or numbers 
-//Reference https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module5-ValidatedService
+
+//Reference : https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module5-ValidatedService
+
 
 function validatePhone(txtPhone) {
     var a = document.getElementById(txtPhone).value;
@@ -39,13 +41,45 @@ function validateDebit(txtDebit) {
 // Document of datepicker is here: https://api.jqueryui.com/datepicker/ 
 // The following code shows how to set specific dates to exclude, as well as Sundays (Day 0)
 // Make sure in your version that you associate Days to remove with Experts (e.g. John doesn't work Mondays)
-var unavailableDates = ["06/29/2020","07/07/2020","07/10/2020"]
-const setDateFormat = "mm/dd/yy";
+var unavailableDates = []
 
+var amandaUnavail = ["06/17/2020","06/24/2020", "07/01/2020", "07/08/2020", 
+"07/15/2020","07/22/2020","07/29/2020","08/05/2020","08/12/2020","08/19/2020",
+"08/26/2020"]
+
+var kylieUnavail = ["06/19/2020","06/26/2020", "07/03/2020", "07/10/2020", 
+"07/17/2020","07/24/2020","07/31/2020","08/07/2020","08/14/2020","08/21/2020","08/28/2020"]
+
+var janeUnavail = ["06/18/2020","06/25/2020", "07/02/2020", "07/09/2020", 
+"07/16/2020","07/23/2020","07/30/2020","08/06/2020","08/13/2020","08/20/2020","08/27/2020"]
+
+
+const setDateFormat = "mm/dd/yy";
+//https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_radio_checked
 function disableDates(date) {
     // Sunday is Day 0, disable all Sundays
-    if (date.getDay() == 0)
+    if (date.getDay() == 0){
         return [false];
+    }
+     if (date.getDay() == 6){
+       return [false];
+    }
+    
+    if( document.getElementById("radio-1").checked){
+      unavailableDates = amandaUnavail
+    }
+
+    if( document.getElementById("radio-2").checked){
+      unavailableDates = kylieUnavail
+    }
+
+    if( document.getElementById("radio-3").checked){
+      unavailableDates = janeUnavail
+    }
+
+
+
+
     var string = jQuery.datepicker.formatDate(setDateFormat, date);
     return [ unavailableDates.indexOf(string) == -1 ]
 }
@@ -81,9 +115,6 @@ $(document).ready(function(){
         }
     });
 
-
-
-
     // To change the style of the calender, look in jqueryui.com, under Themes, in the ThemeRoller Gallery 
     // You can try different themes (the names are under the calendars) / This is Excite Bike 
     // To use a different theme you must include its css in your HTML file. 
@@ -95,14 +126,13 @@ $(document).ready(function(){
         {
             dateFormat: setDateFormat,
             // no calendar before June 1rst 2020
-            minDate: new Date('06/23/2020'),  
+            minDate: new Date(),  
             maxDate: '+4M',
             // used to disable some dates
             beforeShowDay: $.datepicker.noWeekends,
             beforeShowDay: disableDates
         }   
     );
-
 
     // Look at the different events on which an action can be performed
     // https://www.w3schools.com/jquery/jquery_events.asp
@@ -136,7 +166,7 @@ $(document).ready(function(){
       event.preventDefault();
     } );
   } );
-  //https://jqueryui.com/button/
+  //Reference; https://jqueryui.com/button/
   
     $( function() {
     $( ".widget input[type=submit], .widget a, .widget button" ).button();
@@ -145,7 +175,7 @@ $(document).ready(function(){
     } );
   } );
 
-//https://www.w3schools.com/jquery/jquery_events.asp
+//Reference:https://www.w3schools.com/jquery/jquery_events.asp
 $(document).ready(function(){
   $("#p1").click(function(){
     alert("You entered p1!");
