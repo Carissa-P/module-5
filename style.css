@@ -3,6 +3,8 @@
 */
 
 /* Bootstrap default font-family is Helvetica Neue */
+
+/*Reference - https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module5-ValidatedService*/
 h1 {
 font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
  text-align :center;
@@ -112,7 +114,6 @@ html {
 
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -199,6 +200,7 @@ span.price {
   background-color: rgb(255, 0, 0, .2);
 
 }
+/* Reference: https://www.w3schools.com/howto/howto_css_two_columns.asp*/
 
 /* Create two equal columns that floats next to each other */
 .column2 {
